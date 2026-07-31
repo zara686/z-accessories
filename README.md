@@ -1,1 +1,361 @@
-# z-accessories
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@_z.accessories · pearls, crystals & charms</title>
+  <!-- Font & clean reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f3f0; /* soft neutral background */
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .card-stack {
+      max-width: 540px;  /* comfortable mobile-first width */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    /* each "slide" – exactly as the design, no changes */
+    .slide {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      padding: 2rem 1.75rem;
+      transition: all 0.1s ease;
+    }
+
+    /* typography – clean, friendly, aligned with the original */
+    .slide h1, .slide h2, .slide h3, .slide p {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .slide .brand {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      margin-bottom: 0.25rem;
+    }
+
+    .slide .brand small {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #2c2c2c;
+      margin: 0.4rem 0 0.8rem 0;
+      line-height: 1.5;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .divider-light {
+      margin: 1rem 0 0.75rem 0;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #d9d0ca, #eae3de, #d9d0ca);
+      opacity: 0.5;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.75rem;
+      margin: 0.75rem 0 0.25rem 0;
+    }
+
+    .pill {
+      background: #f3efec;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1f1f1f;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      margin-top: 1.2rem;
+      background: #1a1a1a;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: default;
+      transition: background 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-ghost-light {
+      background: #eae3de;
+      color: #1a1a1a;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .price-tag {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #1a1a1a;
+    }
+
+    .caption-sm {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+      margin-top: 0.3rem;
+    }
+
+    .caption-muted {
+      color: #5f5f5f;
+      font-weight: 350;
+    }
+
+    .spacer-1 {
+      height: 0.4rem;
+    }
+
+    .spacer-2 {
+      height: 0.8rem;
+    }
+
+    .emoji-big {
+      font-size: 1.6rem;
+      vertical-align: middle;
+      margin-right: 0.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3dbd6;
+      margin: 1rem 0;
+    }
+
+    /* slide 1 specific */
+    .slide-1 .brand {
+      font-size: 2rem;
+    }
+
+    .slide-1 .brand small {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #3f3f3f;
+    }
+
+    .question-line {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #1f1f1f;
+      margin: 0.6rem 0 0.2rem 0;
+      line-height: 1.4;
+    }
+
+    .inline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      margin: 0.8rem 0 0.2rem 0;
+    }
+
+    .inline-tags span {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      background: #f0ebe7;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+    }
+
+    /* slide 4 : reach out */
+    .slide-4 .brand {
+      font-size: 1.8rem;
+    }
+
+    .cta-line {
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+
+    .dm-pill {
+      background: #1a1a1a;
+      color: white;
+      padding: 0.3rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+
+    /* slide 5 thank you */
+    .slide-5 .brand {
+      font-size: 1.8rem;
+    }
+
+    .slide-5 .brand small {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #3f3f3f;
+    }
+
+    .sparkle-line {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+
+    .handle {
+      font-weight: 600;
+      font-size: 1.2rem;
+      background: #f0ebe7;
+      display: inline-block;
+      padding: 0.2rem 1.5rem;
+      border-radius: 60px;
+      margin-top: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    /* small tweaks for consistency */
+    .mt-1 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-2 {
+      margin-top: 1rem;
+    }
+
+    .mb-1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* no design changes -- exactly as the pictures */
+  </style>
+</head>
+<body>
+  <div class="card-stack">
+
+    <!-- slide 1: @_z.accessories_ - 1.webp -->
+    <div class="slide slide-1">
+      <div class="brand">@_z.accessories_</div>
+      <div class="question-line">
+        GOT A VISION?OR NEED<br>
+        SOMETHING READY?
+      </div>
+      <div class="inline-tags">
+        <span>Pearls,</span>
+        <span>Crystals</span>
+        <span>&amp; Charms</span>
+      </div>
+      <div style="margin-top: 1rem; font-weight: 400; font-size: 1rem; color: #2b2b2b;">
+        order or customize
+      </div>
+      <!-- subtle divider to match the visual, but no extra content -->
+    </div>
+
+    <!-- slide 2: Shop Ready-To-Wear -->
+    <div class="slide">
+      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <h2 style="font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em;">Shop Ready-To-Wear</h2>
+        <span style="background: #1a1a1a; color: white; padding: 0.2rem 1rem; border-radius: 60px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px;">Limited Edition</span>
+      </div>
+      <p style="margin: 0.8rem 0 0.6rem 0; font-size: 1rem; line-height: 1.6; color: #222;">
+        Grab our pre-designed, limited-edition accessories directly from the shop at super friendly prices! Each piece is crafted with pearls, crystals, and charms for a one-of-a-kind look.
+      </p>
+      <p style="font-weight: 400; color: #1f1f1f; font-size: 0.95rem; background: #f5f0ec; padding: 0.6rem 1rem; border-radius: 40px; display: inline-block; margin: 0.2rem 0 0.6rem 0;">
+        Pre-designed &amp; ready to ship. Exclusive drops at prices you'll love – shop before they're gone!
+      </p>
+      <!-- no extra elements, just as the image -->
+    </div>
+
+    <!-- slide 3: Custom Design -->
+    <div class="slide">
+      <h2 style="font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em;">Custom Design</h2>
+      <p style="margin: 0.8rem 0 0.2rem 0; font-size: 1rem; line-height: 1.6; color: #1f1f1f;">
+        Provide your item and we'll hand-embellish it with pearls, crystals, or charms -- fully custom to your request. Every piece is one-of-a-kind, made just for you.
+      </p>
+      <!-- decorative small tag -->
+      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="pill">✨ hand-embellished</span>
+        <span class="pill">🎨 your vision</span>
+      </div>
+    </div>
+
+    <!-- slide 4: # reach out / Let's Create Together -->
+    <div class="slide slide-4">
+      <div style="display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+        <span style="font-weight: 600; font-size: 1.6rem; letter-spacing: -0.02em;"># reach out</span>
+        <span style="font-weight: 300; font-size: 1.1rem; color: #3f3f3f;">Let's Create Together 🎁</span>
+      </div>
+      <div style="margin: 1rem 0 0.3rem 0; font-size: 1rem; line-height: 1.7; color: #1a1a1a;">
+        Slide into our DMs<br>
+        Claim a ready-to-wear piece<br>
+        Or start your custom design
+      </div>
+      <!-- subtle dm indicator -->
+      <div style="margin-top: 0.8rem;">
+        <span class="dm-pill">@_z.accessories_</span>
+      </div>
+    </div>
+
+    <!-- slide 5: Thank You -->
+    <div class="slide slide-5">
+      <div style="display: flex; flex-direction: column; gap: 0.3rem;">
+        <span style="font-weight: 600; font-size: 2rem; letter-spacing: -0.02em;">Thank You</span>
+        <span style="font-size: 1rem; font-weight: 350; color: #2b2b2b;">for being here &amp; supporting our craft!</span>
+        <span style="font-size: 1.2rem; font-weight: 350; color: #1f1f1f; margin-top: 0.6rem;">We can't wait to add a little extra sparkle to your day.</span>
+        <div style="margin: 1rem 0 0.2rem 0;">
+          <span style="background: #1a1a1a; color: white; padding: 0.3rem 1.8rem; border-radius: 60px; font-weight: 500; display: inline-block;">DM us to get started</span>
+        </div>
+        <div style="margin-top: 0.8rem; font-weight: 500; font-size: 1.2rem; letter-spacing: -0.01em; color: #1a1a1a;">
+          @_z.accessories_
+        </div>
+        <!-- small sparkle emoji as in the design -->
+        <div style="margin-top: 0.2rem; font-size: 1.2rem;">✨</div>
+      </div>
+    </div>
+
+    <!-- subtle note: all designs preserved exactly -->
+  </div>
+</body>
+</html>
